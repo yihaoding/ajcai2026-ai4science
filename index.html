@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AJCAI 2026 Workshop on AI for Science</title>
+<meta name="description" content="AJCAI 2026 Workshop on AI for Science: Advanced AI and Data Analytics for Scientific Research. 27 November 2026, Auckland, New Zealand.">
+<meta property="og:title" content="AJCAI 2026 Workshop on AI for Science">
+<meta property="og:description" content="AJCAI 2026 Workshop on AI for Science: Advanced AI and Data Analytics for Scientific Research. 27 November 2026, Auckland, New Zealand.">
+<meta property="og:type" content="website">
+<style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style>
+</head>
+<body>
+<style>
+  :root {
+    --navy: #0f2a4a;
+    --navy-dark: #0a1f38;
+    --accent: #1a7f8e;
+    --accent-light: #e6f3f5;
+    --text: #2b3440;
+    --muted: #5b6674;
+    --border: #e2e7ee;
+    --bg-soft: #f6f8fb;
+    --max-w: 1080px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+  body {
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--text);
+    line-height: 1.65;
+    background: #fff;
+  }
+
+  /* ---------- Navigation ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--navy-dark);
+    box-shadow: 0 2px 8px rgba(0,0,0,.25);
+  }
+  .nav-inner {
+    max-width: var(--max-w); margin: 0 auto;
+    display: flex; flex-wrap: wrap; align-items: center;
+    padding: 0 16px;
+  }
+  .nav-brand {
+    color: #fff; font-weight: 700; font-size: .95rem;
+    padding: 14px 12px 14px 0; letter-spacing: .3px;
+    text-decoration: none; white-space: nowrap;
+  }
+  .nav-brand span { color: #6fc4d0; }
+  .nav-links { display: flex; flex-wrap: wrap; margin-left: auto; }
+  .nav-links a {
+    color: #cfd8e3; text-decoration: none; font-size: .88rem;
+    padding: 14px 11px; transition: color .15s;
+  }
+  .nav-links a:hover { color: #fff; }
+
+  /* ---------- Hero ---------- */
+  header.hero {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 55%, #14536b 100%);
+    color: #fff; text-align: center;
+    padding: 72px 20px 64px;
+  }
+  .hero .conf-tag {
+    display: inline-block; background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.3); border-radius: 999px;
+    padding: 5px 18px; font-size: .85rem; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 22px;
+  }
+  .hero h1 { font-size: clamp(1.7rem, 4.5vw, 2.7rem); line-height: 1.2; margin-bottom: 14px; color: #fff; }
+  .hero .subtitle {
+    font-size: clamp(1rem, 2.4vw, 1.3rem); font-weight: 300;
+    color: #cfe3ea; margin-bottom: 28px;
+  }
+  .hero .meta {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px;
+    font-size: .98rem; color: #e6eef4; margin-bottom: 34px;
+  }
+  .hero .meta span::before { content: "▸ "; color: #6fc4d0; }
+  .hero .cta a {
+    display: inline-block; margin: 6px 8px; padding: 11px 26px;
+    border-radius: 6px; text-decoration: none; font-weight: 600; font-size: .95rem;
+  }
+  .cta .primary { background: #fff; color: var(--navy); }
+  .cta .primary:hover { background: #e8f4f7; }
+  .cta .secondary { border: 1.5px solid rgba(255,255,255,.65); color: #fff; }
+  .cta .secondary:hover { background: rgba(255,255,255,.12); }
+
+  /* ---------- Sections ---------- */
+  section { max-width: var(--max-w); margin: 0 auto; padding: 56px 20px 8px; }
+  section h2 {
+    font-size: 1.65rem; color: var(--navy); margin-bottom: 6px;
+  }
+  .rule { width: 56px; height: 4px; background: var(--accent); border-radius: 2px; margin: 0 0 26px; }
+  section h3 { color: var(--navy); font-size: 1.15rem; margin: 26px 0 10px; }
+  section p { margin-bottom: 14px; }
+  section ul { margin: 0 0 16px 22px; }
+  section li { margin-bottom: 8px; }
+  a { color: var(--accent); }
+  .note {
+    background: var(--accent-light); border-left: 4px solid var(--accent);
+    padding: 14px 18px; border-radius: 0 6px 6px 0; margin: 18px 0;
+    font-size: .95rem; color: var(--text);
+  }
+
+  /* ---------- Theme cards ---------- */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin: 22px 0; }
+  .card {
+    background: var(--bg-soft); border: 1px solid var(--border);
+    border-top: 4px solid var(--accent); border-radius: 8px; padding: 22px;
+  }
+  .card h4 { color: var(--navy); font-size: 1.02rem; margin-bottom: 10px; }
+  .card p { font-size: .93rem; color: var(--muted); margin: 0; }
+
+  /* ---------- Tables ---------- */
+  .table-wrap { overflow-x: auto; margin: 18px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+  th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--border); }
+  th { background: var(--navy); color: #fff; font-weight: 600; white-space: nowrap; }
+  tr:nth-child(even) td { background: var(--bg-soft); }
+  td { color: var(--text); }
+  td.time { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--muted); }
+  .tba { color: var(--muted); font-style: italic; }
+
+  /* ---------- Organizers ---------- */
+  .people { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 22px; margin: 24px 0; }
+  .person {
+    background: #fff; border: 1px solid var(--border); border-radius: 10px;
+    padding: 26px 18px 20px; text-align: center;
+    box-shadow: 0 1px 4px rgba(15,42,74,.06);
+  }
+  .person img, .person .avatar-fallback {
+    width: 120px; height: 120px; border-radius: 50%;
+    object-fit: cover; object-position: center top;
+    border: 3px solid var(--accent-light); margin-bottom: 14px;
+  }
+  .person .avatar-fallback {
+    display: flex; align-items: center; justify-content: center;
+    background: var(--navy); color: #fff; font-size: 2rem; font-weight: 700;
+    margin-left: auto; margin-right: auto;
+  }
+  .person .name { font-weight: 700; color: var(--navy); font-size: 1.02rem; }
+  .person .affil { font-size: .88rem; color: var(--muted); margin: 4px 0 8px; }
+  .person .bio { font-size: .85rem; color: var(--text); text-align: left; margin-top: 8px; }
+  .person .mail { font-size: .85rem; word-break: break-all; }
+
+  /* ---------- Contact / footer ---------- */
+  .contact-box {
+    background: var(--bg-soft); border: 1px solid var(--border); border-radius: 8px;
+    padding: 22px 26px; margin: 18px 0;
+  }
+  footer {
+    background: var(--navy-dark); color: #9fb0c3; text-align: center;
+    padding: 28px 20px; margin-top: 64px; font-size: .88rem;
+  }
+  footer a { color: #6fc4d0; }
+
+  @media (max-width: 640px) {
+    .nav-links a { padding: 10px 8px; font-size: .82rem; }
+    .nav-brand { padding: 10px 8px 6px 0; }
+    header.hero { padding: 48px 16px 44px; }
+  }
+</style>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="#top">AJCAI 2026 <span>· AI for Science</span></a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#themes">Themes</a>
+      <a href="#cfp">Call for Papers</a>
+      <a href="#dates">Dates</a>
+      <a href="#speakers">Call for Speakers</a>
+      <a href="#program">Program</a>
+      <a href="#organizers">Organizers</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="conf-tag">AJCAI 2026 Workshop</div>
+  <h1>AI for Science</h1>
+  <div class="subtitle">Advanced AI and Data Analytics for Scientific Research</div>
+  <div class="meta">
+    <span>Half-day workshop</span>
+    <span>27 November 2026</span>
+    <span>Auckland, New Zealand</span>
+    <span>Co-located with AJCAI 2026</span>
+  </div>
+  <div class="cta">
+    <a class="primary" href="#cfp">Call for Papers</a>
+    <a class="secondary" href="#speakers">Call for Speakers</a>
+  </div>
+</header>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <h2>About the Workshop</h2>
+  <div class="rule"></div>
+  <p>
+    Artificial intelligence (AI) has become an increasingly important component of modern scientific
+    research, providing new approaches to analysing complex and large-scale scientific data, modelling
+    complex systems, and accelerating discovery. Recent advances in machine learning, foundation models,
+    and generative models have further expanded the potential of AI across scientific domains, including
+    health and life sciences, environmental and geospatial sciences, and computational sciences.
+  </p>
+  <p>
+    However, translating these advances into scientific discovery requires methods that address the
+    heterogeneity, complexity, and domain-specific characteristics of scientific data while producing
+    robust, interpretable, and scientifically meaningful results. Scientific data are frequently limited,
+    noisy, or expensive to obtain; multimodal and spatiotemporal; governed by complex and partially known
+    underlying mechanisms; and subject to requirements for robustness, interpretability, and scientific
+    validity that go well beyond predictive accuracy.
+  </p>
+  <p>
+    This half-day workshop focuses on AI and data-driven approaches to scientific discovery. It brings
+    together researchers from diverse scientific disciplines around three connected themes, and provides
+    a forum for both methodological advances and real-world applications, facilitating discussion of the
+    opportunities and challenges in developing AI systems that meaningfully advance scientific research.
+  </p>
+
+  <h3>Objectives</h3>
+  <ul>
+    <li>Identify data-related gaps in AI for Science and advance <strong>AI methodologies for the challenges of scientific data</strong>.</li>
+    <li>Examine how <strong>foundation, generative, and multimodal models</strong> can support scientific reasoning, knowledge extraction, and discovery — and where they currently fall short.</li>
+    <li>Explore how <strong>AI-derived results can be translated into scientifically meaningful knowledge</strong>, moving beyond predictive performance towards interpretation, hypothesis generation, validation, and discovery.</li>
+    <li>Facilitate <strong>interdisciplinary exchange</strong> between AI researchers and domain scientists.</li>
+  </ul>
+</section>
+
+<!-- ================= THEMES ================= -->
+<section id="themes">
+  <h2>Workshop Themes</h2>
+  <div class="rule"></div>
+  <p>The scope is defined by the nature of the scientific problem and data rather than by any particular AI technique, and is organised around three connected themes.</p>
+
+  <div class="cards">
+    <div class="card">
+      <h4>Theme 1 — AI Methods for the Distinctive Challenges of Scientific Data</h4>
+      <p>Methods addressing noise and measurement error; missing, sparse, or irregularly sampled observations; limited or imbalanced samples; heterogeneity across sources, instruments, sites, or populations; uncertainty quantification; distribution shift; and spatial, temporal, and longitudinal dependencies.</p>
+    </div>
+    <div class="card">
+      <h4>Theme 2 — Foundation Models, Generative AI, and Multimodal Models for Scientific Reasoning and Discovery</h4>
+      <p>Large language models, generative and multimodal models, and AI agents applied to heterogeneous scientific data — text, images, signals, sensor measurements, and spatial, temporal, and longitudinal records — supporting scientific reasoning, knowledge extraction, hypothesis generation, and experimental design.</p>
+    </div>
+    <div class="card">
+      <h4>Theme 3 — Reliable, Interpretable AI and the Translation of AI Outputs into Scientific Knowledge</h4>
+      <p>Methods and evaluation frameworks addressing interpretability, uncertainty, robustness, reproducibility, generalisability, and scientific validity, together with approaches for validating AI outputs against domain knowledge and turning them into hypotheses, mechanisms, or decisions scientists can act on.</p>
+    </div>
+  </div>
+
+  <h3>Application Domains</h3>
+  <p>The scope is intentionally interdisciplinary. We welcome work across scientific domains, including but not limited to:</p>
+  <ul>
+    <li><strong>Health and biomedical sciences</strong> — digital phenotyping, passive sensing and mental health, measurement-based and personalised care, biomedical signal and image analysis;</li>
+    <li><strong>Environmental, geospatial, and earth sciences</strong> — mineral exploration and geochemical data, remote sensing, water and environmental monitoring, climate and ecological data;</li>
+    <li><strong>Physical, materials, and computational sciences</strong> — physics-informed learning, materials discovery, surrogate modelling and simulation;</li>
+    <li><strong>Life sciences</strong> — omics, ecology, and biodiversity monitoring;</li>
+    <li><strong>Engineering, robotics, and intelligent systems</strong>, and <strong>human and social sciences</strong>, where AI is used to analyse experimental or observational data.</li>
+  </ul>
+</section>
+
+<!-- ================= CALL FOR PAPERS ================= -->
+<section id="cfp">
+  <h2>Call for Papers</h2>
+  <div class="rule"></div>
+  <p>
+    We invite submissions on AI and data-driven methods for scientific analysis and discovery across the
+    three workshop themes and all application domains listed above. Contributions are <em>not</em> required
+    to introduce an entirely new AI algorithm — we equally welcome:
+  </p>
+  <ul>
+    <li><strong>Novel methodological developments</strong> motivated by scientific data challenges; and</li>
+    <li><strong>Rigorous applications of existing AI methods</strong> that generate new scientific insights, address important data-analysis challenges, or demonstrate new ways in which AI can support scientific research.</li>
+  </ul>
+  <p>
+    Work is in scope when it engages seriously with a scientific question and with the properties of
+    scientific data. General-purpose AI methods evaluated only on standard benchmarks, and applications
+    that use scientific data purely as a test case without scientific interpretation or validation, fall
+    outside the scope of the workshop.
+  </p>
+
+  <h3>Submission Categories</h3>
+  <div class="cards">
+    <div class="card">
+      <h4>Workshop Papers (Archival)</h4>
+      <p><strong>Full papers</strong> up to 9 pages and <strong>short papers</strong> up to 4 pages, excluding references, following the AJCAI 2026 formatting guidelines. All papers will be peer-reviewed by at least two program committee members. Accepted papers will be presented as oral or poster presentations.</p>
+    </div>
+    <div class="card">
+      <h4>Presentation-Only Contributions (Non-Archival)</h4>
+      <p>Relevant papers accepted within the previous year at major AI and machine learning venues (e.g. ICLR, ICML, NeurIPS, AAAI, IJCAI, and related conferences). These works will not undergo a separate archival publication process, providing an opportunity to bring high-quality, timely research into the workshop discussion.</p>
+    </div>
+  </div>
+
+  <h3>Submission Instructions</h3>
+  <ul>
+    <li>Format: AJCAI 2026 formatting guidelines (see the <a href="https://ajcai2026.org/" target="_blank" rel="noopener">AJCAI 2026 website</a>).</li>
+    <li>Page limits: full papers up to 9 pages, short papers up to 4 pages, excluding references.</li>
+    <li>Review: single-track peer review by at least two program committee members.</li>
+    <li>Submission site: <span class="tba">to be announced</span>.</li>
+  </ul>
+  <div class="note">
+    At least one author of each accepted paper must register for the workshop and present the work.
+    Remote presentation arrangements will be available where needed.
+  </div>
+</section>
+
+<!-- ================= IMPORTANT DATES ================= -->
+<section id="dates">
+  <h2>Important Dates</h2>
+  <div class="rule"></div>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Milestone</th><th>Date</th></tr>
+      <tr><td>Paper submission deadline</td><td class="tba">TBA</td></tr>
+      <tr><td>Notification of acceptance</td><td class="tba">TBA</td></tr>
+      <tr><td>Camera-ready deadline</td><td class="tba">TBA</td></tr>
+      <tr><td>Presentation-only contribution deadline</td><td class="tba">TBA</td></tr>
+      <tr><td><strong>Workshop day</strong></td><td><strong>27 November 2026</strong></td></tr>
+    </table>
+  </div>
+  <p class="tba">All deadlines are 23:59 Anywhere on Earth (AoE). Dates will be confirmed shortly.</p>
+</section>
+
+<!-- ================= CALL FOR SPEAKERS ================= -->
+<section id="speakers">
+  <h2>Call for Speakers</h2>
+  <div class="rule"></div>
+  <p>
+    The workshop program features an <strong>invited keynote</strong> (AI-methods perspective), an
+    <strong>invited interdisciplinary talk</strong> (domain-science perspective), and a panel on
+    <em>“From AI Predictions to Scientific Discovery.”</em> Contributed sessions also reserve slots for
+    student and early-career presenters.
+  </p>
+  <p>
+    We welcome <strong>nominations and self-nominations</strong> for invited talks and panel participation
+    from both AI-methods researchers and domain scientists whose work connects to the workshop themes —
+    including scientific machine learning, foundation and multimodal models for science, and the
+    interpretation, validation, and translation of AI outputs in domains such as health and biomedicine,
+    environmental and geospatial science, and the physical and life sciences.
+  </p>
+  <ul>
+    <li><strong>Who:</strong> researchers at any career stage, from academia or industry; we particularly encourage speakers from Australasia and the Asia-Pacific region, and aim for balance across gender, career stage, region, and discipline.</li>
+    <li><strong>Format:</strong> onsite talks in Auckland are preferred; remote participation will be arranged for speakers unable to attend in person.</li>
+    <li><strong>How:</strong> email the organizers (see <a href="#contact">Contact</a>) with a short bio, a talk title and abstract, and the workshop theme(s) your talk addresses.</li>
+  </ul>
+  <div class="note">
+    Confirmed invited speakers will be announced on this page.
+  </div>
+</section>
+
+<!-- ================= PROGRAM ================= -->
+<section id="program">
+  <h2>Program (Tentative)</h2>
+  <div class="rule"></div>
+  <p>Half-day program combining invited talks, contributed presentations, and a panel. Each session maps onto the three workshop themes.</p>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Time</th><th>Session</th></tr>
+      <tr><td class="time">09:00 – 09:10</td><td>Welcome and workshop introduction</td></tr>
+      <tr><td class="time">09:10 – 09:50</td><td>Invited keynote: <em>AI for Scientific Discovery</em> (Themes 1–2)</td></tr>
+      <tr><td class="time">09:50 – 10:30</td><td>Contributed session 1: methods for scientific data and modelling</td></tr>
+      <tr><td class="time">10:30 – 10:45</td><td>Coffee break</td></tr>
+      <tr><td class="time">10:45 – 11:20</td><td>Invited interdisciplinary talk: a domain-science perspective (Theme 3)</td></tr>
+      <tr><td class="time">11:20 – 11:50</td><td>Contributed session 2: generative and multimodal AI for science; emerging directions</td></tr>
+      <tr><td class="time">11:50 – 12:20</td><td>Panel: <em>From AI Predictions to Scientific Discovery</em></td></tr>
+      <tr><td class="time">12:20 – 12:30</td><td>Open discussion and closing remarks</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ================= ORGANIZERS ================= -->
+<section id="organizers">
+  <h2>Organizers</h2>
+  <div class="rule"></div>
+
+  <div class="people">
+    <div class="person">
+      <img src="photos/Tianyi_Zhang.jpeg" alt="Tianyi Zhang">
+      <div class="name">Tianyi Zhang</div>
+      <div class="affil">Postdoctoral Research Fellow<br>Brain and Mind Centre, University of Sydney</div>
+      <div class="mail"><a href="mailto:tianyi.zhang2@sydney.edu.au">tianyi.zhang2@sydney.edu.au</a></div>
+      <div class="bio">AI, machine learning, and data-driven methods for understanding human behaviour and mental health; digital phenotyping, multimodal and passive sensing, and language models for mental health applications.</div>
+    </div>
+
+    <div class="person">
+      <img src="photos/Yihao_Ding.jpg" alt="Yihao Ding">
+      <div class="name">Yihao Ding</div>
+      <div class="affil">Lecturer<br>University of Western Australia</div>
+      <div class="mail"><a href="mailto:yihao.ding@uwa.edu.au">yihao.ding@uwa.edu.au</a></div>
+      <div class="bio">Multimodal large language models, deep learning-based document analysis, information retrieval, question answering, visually rich document understanding, and geospatial data science.</div>
+    </div>
+
+    <div class="person">
+      <img src="photos/Simon_DAlfonso.jpeg" alt="Simon D'Alfonso">
+      <div class="name">Simon D'Alfonso</div>
+      <div class="affil">Senior Lecturer<br>University of Melbourne</div>
+      <div class="mail"><a href="mailto:dalfonso@unimelb.edu.au">dalfonso@unimelb.edu.au</a></div>
+      <div class="bio">Intersection of AI, digital mental health, and human–computer interaction; digital technologies and computational approaches for supporting mental health and wellbeing.</div>
+    </div>
+
+    <div class="person">
+      <img src="photos/Frank_Iorfino.jpg" alt="Frank Iorfino">
+      <div class="name">Frank Iorfino</div>
+      <div class="affil">Associate Professor<br>Brain and Mind Centre, University of Sydney</div>
+      <div class="mail"><a href="mailto:frank.iorfino@sydney.edu.au">frank.iorfino@sydney.edu.au</a></div>
+      <div class="bio">Youth mental health, digital health, AI, and data-driven approaches to personalised and measurement-based care; leads the Health Services and Digital Innovations research program.</div>
+    </div>
+
+    <div class="person">
+      <img src="photos/Changyong_Zhang.jpeg" alt="Changyong Zhang">
+      <div class="name">Changyong Zhang</div>
+      <div class="affil">Professor<br>University of Science and Technology of China</div>
+      <div class="mail"><a href="mailto:changyongzhang@ustc.edu.cn">changyongzhang@ustc.edu.cn</a></div>
+      <div class="bio">Electrochemical water treatment, water purification and resource recovery, environmental functional materials, and data science for environmental applications.</div>
+    </div>
+
+    <div class="person">
+      <img src="photos/Vassilis_Kostakos.jpeg" alt="Vassilis Kostakos">
+      <div class="name">Vassilis Kostakos</div>
+      <div class="affil">Professor<br>University of Melbourne</div>
+      <div class="mail"><a href="mailto:vassilis.kostakos@unimelb.edu.au">vassilis.kostakos@unimelb.edu.au</a></div>
+      <div class="bio">Human–computer interaction, ubiquitous computing, and mobile and wearable sensing; understanding human behaviour through computational and sensor-based approaches.</div>
+    </div>
+
+    <div class="person">
+      <img src="photos/Ian_Hickie.jpg" alt="Ian Hickie">
+      <div class="name">Ian Hickie</div>
+      <div class="affil">Professor of Psychiatry, Co-Director Health and Policy<br>Brain and Mind Centre, University of Sydney</div>
+      <div class="mail"><a href="mailto:ian.hickie@sydney.edu.au">ian.hickie@sydney.edu.au</a></div>
+      <div class="bio">Youth mental health, mood disorders, suicide prevention, digital health, and personalised, measurement-based models of care; NHMRC Senior Principal Research Fellow.</div>
+    </div>
+  </div>
+
+  <h3>Student Organizers</h3>
+  <div class="people">
+    <div class="person">
+      <img src="photos/Shuhe_Wang.jpg" alt="Shuhe Wang">
+      <div class="name">Shuhe Wang</div>
+      <div class="affil">Ph.D. Student<br>University of Melbourne</div>
+      <div class="bio">Natural language processing and large language models — prompt evaluation and refinement, instruction tuning, and reliable language-model-based systems; generative AI and AI agents.</div>
+    </div>
+
+    <div class="person">
+      <div class="avatar-fallback">LX</div>
+      <div class="name">Lewei Xu</div>
+      <div class="affil">Honours Student<br>University of Western Australia</div>
+      <div class="bio">Multi-page visually rich document understanding — how multimodal large language models retrieve, ground, and reason over evidence distributed across long, multimodal documents.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="rule"></div>
+  <div class="contact-box">
+    <p>For questions about submissions, speaking, or the workshop program, please contact the organizing committee:</p>
+    <ul>
+      <li>Tianyi Zhang — <a href="mailto:tianyi.zhang2@sydney.edu.au">tianyi.zhang2@sydney.edu.au</a></li>
+      <li>Yihao Ding — <a href="mailto:yihao.ding@uwa.edu.au">yihao.ding@uwa.edu.au</a></li>
+    </ul>
+    <p style="margin-bottom:0;">Main conference: <a href="https://ajcai2026.org/" target="_blank" rel="noopener">AJCAI 2026</a>, Auckland, New Zealand.</p>
+  </div>
+</section>
+
+<footer>
+  AJCAI 2026 Workshop on AI for Science — Advanced AI and Data Analytics for Scientific Research<br>
+  27 November 2026 · Auckland, New Zealand · Co-located with <a href="https://ajcai2026.org/" target="_blank" rel="noopener">AJCAI 2026</a>
+</footer>
+
+</body></html>
