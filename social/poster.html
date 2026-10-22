@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AI4Science Poster</title>
+<style>
+  :root {
+    --navy: #0f2a4a;
+    --navy-dark: #0a1f38;
+    --accent: #1a7f8e;
+    --accent-soft: #6fc4d0;
+    --accent-light: #e6f3f5;
+    --ice: #cfe3ea;
+    --muted: #5b6674;
+    --line: #e2e7ee;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1350px; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+    color: #fff;
+    background: linear-gradient(150deg, var(--navy-dark) 0%, var(--navy) 50%, #14536b 100%);
+    position: relative; overflow: hidden;
+  }
+  .net { position: absolute; inset: 0; pointer-events: none; }
+
+  /* Fixed vertical budget (1350px):
+     header 210 | call for papers 450 (1/3) | keynote + dates 270 (1/5) | organizers 320 (<1/4) | footer 100 */
+  .page {
+    position: relative; height: 100%;
+    display: grid; grid-template-rows: 210px 450px 270px 320px 100px;
+  }
+  .row { padding: 0 56px; }
+  .label { font-size: 14px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--accent-soft); }
+  .white .label { color: var(--accent-soft); }
+
+  /* ---------- Header ---------- */
+  .head { padding-top: 40px; }
+  .eyebrow { font-size: 15px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-soft); }
+  h1 {
+    font-family: "Avenir Next", "Avenir", -apple-system, sans-serif;
+    font-size: 66px; line-height: 1; font-weight: 700; letter-spacing: -.5px; margin-top: 10px;
+  }
+  h1 .for { font-weight: 400; color: var(--ice); }
+  h1 .sci { background: linear-gradient(90deg, #8fd6e0, #6fc4d0 60%, #4fa8c4); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .sub { font-size: 21px; font-weight: 400; color: var(--ice); margin-top: 10px; }
+  .meta { margin-top: 8px; font-size: 18px; font-weight: 600; color: #fff; }
+  .meta .dot { color: var(--accent-soft); margin: 0 10px; }
+
+  /* ---------- Call for papers ---------- */
+  .cfp { padding-top: 2px; padding-bottom: 14px; }
+  .cfp-box { height: 100%; background: rgba(255,255,255,.07); border: 1.5px solid rgba(255,255,255,.16); color: #fff; border-radius: 18px; padding: 22px 24px; display: flex; flex-direction: column; justify-content: space-between; }
+  .cfp-title { font-size: 28px; font-weight: 800; }
+  .intro { font-size: 17px; line-height: 1.4; color: var(--ice); margin-top: 4px; }
+  .intro b { color: var(--accent-soft); }
+
+  /* Two ways to take part: the visual focus of this section */
+  .tracks { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .track { border-radius: 14px; padding: 16px 18px; color: #fff; position: relative; overflow: hidden; }
+  .track.paper { background: linear-gradient(135deg, #1f93a3 0%, #14606f 100%); border: 1.5px solid rgba(111,196,208,.55); }
+  .track.pres  { background: linear-gradient(135deg, #3d78b3 0%, #22497a 100%); border: 1.5px solid rgba(140,182,226,.55); }
+  .tr-num { font-size: 13px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; opacity: .85; }
+  .tr-name { font-size: 25px; font-weight: 800; margin-top: 2px; }
+  .tr-badge { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; background: rgba(255,255,255,.22); border: 1px solid rgba(255,255,255,.45); border-radius: 5px; padding: 2px 8px; margin-top: 6px; }
+  .tr-desc { font-size: 16px; line-height: 1.35; margin-top: 8px; color: rgba(255,255,255,.95); }
+
+  /* Topics: secondary, sits under the tracks */
+  .topics-label { font-size: 13px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent-soft); margin-bottom: 8px; }
+  .themes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .theme { background: rgba(255,255,255,.06); border: 1.5px solid rgba(255,255,255,.12); border-radius: 11px; padding: 11px 13px; }
+  .t-head { display: flex; align-items: center; gap: 9px; }
+  .icon { width: 32px; height: 32px; border-radius: 8px; background: var(--accent); flex: none; display: flex; align-items: center; justify-content: center; }
+  .icon svg { width: 18px; height: 18px; }
+  .t-title { font-size: 15px; font-weight: 800; line-height: 1.2; }
+  .t-desc { font-size: 13.5px; color: var(--ice); line-height: 1.4; margin-top: 6px; }
+
+  .domains { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin-top: 10px; }
+  .domains .dl { font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-soft); margin-right: 3px; }
+  .domains span:not(.dl) { font-size: 13px; font-weight: 600; color: #e6eef4; background: rgba(111,196,208,.1); border: 1.5px solid rgba(111,196,208,.45); border-radius: 999px; padding: 2px 10px; }
+
+  /* ---------- Keynote + dates ---------- */
+  .kd { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; padding-bottom: 16px; }
+  .card { border-radius: 16px; padding: 16px 20px; }
+  .dark { background: rgba(255,255,255,.07); border: 1.5px solid rgba(255,255,255,.16); }
+  .white { background: rgba(255,255,255,.07); border: 1.5px solid rgba(255,255,255,.16); color: #fff; }
+  .keynote { display: flex; flex-direction: column; }
+  .k-body { display: flex; align-items: center; gap: 18px; margin-top: auto; margin-bottom: auto; }
+  .keynote img {
+    width: 120px; height: 120px; border-radius: 50%; object-fit: cover; object-position: center top;
+    border: 3px solid var(--accent-soft); flex: none;
+  }
+  .k-name { font-size: 28px; font-weight: 700; }
+  .k-affil { font-size: 16px; color: var(--ice); margin-top: 2px; }
+  .k-area { font-size: 14.5px; color: #e6eef4; margin-top: 10px; line-height: 1.4; }
+  .k-area b { color: var(--accent-soft); font-weight: 600; }
+  .date { display: flex; justify-content: space-between; align-items: baseline; font-size: 18px; padding: 9px 0; border-bottom: 1.5px solid rgba(255,255,255,.12); }
+  .date:last-of-type { border-bottom: 0; }
+  .date b { font-weight: 700; white-space: nowrap; }
+  .date.hl { background: rgba(111,196,208,.16); border: 1.5px solid rgba(111,196,208,.45); margin: 8px -10px 0; padding: 10px 10px; border-radius: 8px; border-bottom: 0; }
+  .date.hl span, .date.hl b { color: #8fd6e0; font-weight: 800; font-size: 20px; }
+  .aoe { font-size: 13px; color: var(--ice); margin-top: 4px; }
+
+  /* ---------- Organizers ---------- */
+  .orgs { border-top: 1.5px solid rgba(255,255,255,.12); padding-top: 14px; }
+  .grid { margin-top: 10px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px 8px; }
+  .p { text-align: center; }
+  .p img, .p .fb {
+    width: 66px; height: 66px; border-radius: 50%; object-fit: cover; object-position: center top;
+    border: 2px solid rgba(111,196,208,.7); display: block; margin: 0 auto 5px;
+  }
+  .p .fb { display: flex; align-items: center; justify-content: center; background: var(--accent); font-weight: 700; font-size: 22px; }
+  .p .n { font-size: 15px; font-weight: 700; line-height: 1.2; }
+  .p .a { font-size: 12.5px; color: var(--ice); line-height: 1.3; margin-top: 1px; }
+  .p .a i { font-style: normal; color: var(--accent-soft); }
+
+  /* ---------- Footer ---------- */
+  .foot {
+    display: flex; align-items: center; gap: 20px;
+    background: rgba(0,0,0,.25); border-top: 1.5px solid rgba(255,255,255,.12);
+  }
+  .qr { background: #fff; padding: 6px; border-radius: 8px; flex: none; }
+  .qr img { width: 70px; height: 70px; display: block; }
+  .f-main { font-size: 22px; font-weight: 700; }
+  .f-main em { font-style: normal; color: var(--accent-soft); }
+  .f-url { font-size: 16px; color: var(--ice); margin-top: 2px; }
+</style>
+</head>
+<body>
+<svg class="net" width="1080" height="1350" viewBox="0 0 1080 1350" aria-hidden="true">
+  <g stroke="#6fc4d0" stroke-opacity=".25" stroke-width="1.5" fill="none">
+    <path d="M760 40 L870 95 L990 50 M870 95 L930 170 L1040 140 M930 170 L820 175 L760 40"/>
+  </g>
+  <g fill="#6fc4d0" fill-opacity=".5">
+    <circle cx="760" cy="40" r="5"/><circle cx="870" cy="95" r="8"/><circle cx="990" cy="50" r="5"/>
+    <circle cx="930" cy="170" r="6"/><circle cx="1040" cy="140" r="4"/><circle cx="820" cy="175" r="4"/>
+  </g>
+</svg>
+
+<div class="page">
+  <!-- Header -->
+  <div class="row head">
+    <div class="eyebrow">AJCAI 2026 Workshop</div>
+    <h1>AI <span class="for">for</span> <span class="sci">Science</span></h1>
+    <div class="sub">Advanced AI and Data Analytics for Scientific Research</div>
+    <div class="meta">27 November 2026<span class="dot">·</span>Auckland, New Zealand</div>
+  </div>
+
+  <!-- Call for papers & presentations (1/3) -->
+  <div class="row cfp">
+    <div class="cfp-box">
+      <div class="cfp-top">
+        <div class="cfp-title">Call for Papers &amp; Presentations</div>
+        <p class="intro">Bringing <b>AI researchers</b> and <b>domain scientists</b> together to turn complex scientific data into discovery.</p>
+      </div>
+
+      <div class="tracks">
+        <div class="track paper">
+          <div class="tr-num">Option 1</div>
+          <div class="tr-name">Workshop Papers</div>
+          <div class="tr-badge">Archival · Peer-reviewed</div>
+          <div class="tr-desc">Full papers ≤ 9 pages<br>Short papers ≤ 4 pages</div>
+        </div>
+        <div class="track pres">
+          <div class="tr-num">Option 2</div>
+          <div class="tr-name">Presentation-only</div>
+          <div class="tr-badge">Non-archival</div>
+          <div class="tr-desc">Present your recent paper from<br>a top AI/ML venue</div>
+        </div>
+      </div>
+
+      <div class="topics">
+        <div class="topics-label">Topics</div>
+        <div class="themes">
+          <div class="theme">
+            <div class="t-head">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l4-6 4 3 4-8 6 9"/><circle cx="7" cy="11" r="1.2" fill="#fff"/><circle cx="15" cy="6" r="1.2" fill="#fff"/></svg></div>
+              <div class="t-title">AI methods for scientific data</div>
+            </div>
+            <div class="t-desc">Noisy · sparse · heterogeneous data<br>Uncertainty · distribution shift</div>
+          </div>
+          <div class="theme">
+            <div class="t-head">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg></div>
+              <div class="t-title">Foundation, generative &amp; multimodal models</div>
+            </div>
+            <div class="t-desc">LLMs · multimodal models · AI agents<br>Scientific reasoning &amp; hypotheses</div>
+          </div>
+          <div class="theme">
+            <div class="t-head">
+              <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+              <div class="t-title">Reliable, interpretable AI for discovery</div>
+            </div>
+            <div class="t-desc">Interpretability · robustness<br>Outputs → scientific knowledge</div>
+          </div>
+        </div>
+        <div class="domains">
+          <span class="dl">Domains</span><span>Health &amp; biomedicine</span><span>Environmental &amp; geospatial</span>
+          <span>Physical &amp; materials</span><span>Life sciences</span><span>…and more</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Keynote + dates (1/5) -->
+  <div class="row kd">
+    <div class="card dark keynote">
+      <div class="label">Keynote Speaker</div>
+      <div class="k-body">
+        <img src="../photos/Ting_Dang.jpeg" alt="Ting Dang">
+        <div>
+          <div class="k-name">Dr Ting Dang</div>
+          <div class="k-affil">University of Melbourne</div>
+          <div class="k-area"><b>Human-centred AI for health</b><br>speech &amp; audio, wearable sensing</div>
+        </div>
+      </div>
+    </div>
+    <div class="card white">
+      <div class="label">Key Dates</div>
+      <div class="date hl"><span>Paper submission</span><b>2 Nov</b></div>
+      <div class="date"><span>Presentation-only submission</span><b>9 Nov</b></div>
+      <div class="date"><span>Notification</span><b>9 Nov</b></div>
+      <div class="date"><span>Camera-ready</span><b>16 Nov</b></div>
+      <div class="aoe">All deadlines 23:59 AoE, 2026</div>
+    </div>
+  </div>
+
+  <!-- Organizers (1/4) -->
+  <div class="row orgs">
+    <div class="label">Organizers</div>
+    <div class="grid">
+      <div class="p"><img src="../photos/Tianyi_Zhang.jpeg" alt=""><div class="n">Tianyi Zhang</div><div class="a">Univ. of Sydney</div></div>
+      <div class="p"><img src="../photos/Yihao_Ding.jpg" alt=""><div class="n">Yihao Ding</div><div class="a">Univ. of Western Australia</div></div>
+      <div class="p"><img src="../photos/Frank_Iorfino.jpg" alt=""><div class="n">Frank Iorfino</div><div class="a">Univ. of Sydney</div></div>
+      <div class="p"><img src="../photos/Vassilis_Kostakos.jpeg" alt=""><div class="n">Vassilis Kostakos</div><div class="a">Univ. of Melbourne</div></div>
+      <div class="p"><img src="../photos/Simon_DAlfonso.jpeg" alt=""><div class="n">Simon D'Alfonso</div><div class="a">Univ. of Melbourne</div></div>
+      <div class="p"><img src="../photos/Changyong_Zhang.jpeg" alt=""><div class="n">Changyong Zhang</div><div class="a">Univ. of Science and Technology of China</div></div>
+      <div class="p"><img src="../photos/Ian_Hickie.jpg" alt=""><div class="n">Ian Hickie</div><div class="a">Univ. of Sydney</div></div>
+      <div class="p"><img src="Shuhe_Wang_face.jpg" alt=""><div class="n">Shuhe Wang</div><div class="a">Univ. of Melbourne<br><i>Student organizer</i></div></div>
+      <div class="p"><div class="fb">LX</div><div class="n">Lewei Xu</div><div class="a">Univ. of Western Australia<br><i>Student organizer</i></div></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="row foot">
+    <div class="qr"><img src="qr-website.svg" alt="QR code to workshop website"></div>
+    <div>
+      <div class="f-main">Submit via <em>OpenReview</em></div>
+      <div class="f-url">yihaoding.github.io/ajcai2026-ai4science</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

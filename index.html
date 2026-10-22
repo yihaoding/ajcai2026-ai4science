@@ -113,6 +113,18 @@
   .card h4 { color: var(--navy); font-size: 1.02rem; margin-bottom: 10px; }
   .card p { font-size: .93rem; color: var(--muted); margin: 0; }
 
+  /* ---------- Keynote ---------- */
+  .keynote-wrap { display: grid; grid-template-columns: 260px 1fr; gap: 28px; align-items: start; margin: 24px 0; }
+  .keynote-wrap .person { margin: 0; }
+  .talk-title { color: var(--navy); font-size: 1.2rem; line-height: 1.35; margin: 0 0 12px; }
+  .talk-label { font-size: .78rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+  .keynote-wrap h4 { color: var(--navy); font-size: 1rem; margin: 20px 0 8px; }
+  .keynote-wrap p { font-size: .95rem; }
+  @media (max-width: 760px) {
+    .keynote-wrap { grid-template-columns: 1fr; }
+    .keynote-wrap .person { max-width: 320px; margin: 0 auto; }
+  }
+
   /* ---------- Tables ---------- */
   .table-wrap { overflow-x: auto; margin: 18px 0; }
   table { border-collapse: collapse; width: 100%; font-size: .95rem; }
@@ -168,10 +180,10 @@
     <a class="nav-brand" href="#top">AJCAI 2026 <span>· AI for Science</span></a>
     <div class="nav-links">
       <a href="#about">About</a>
+      <a href="#keynote">Keynote</a>
       <a href="#themes">Themes</a>
       <a href="#cfp">Call for Papers</a>
       <a href="#dates">Dates</a>
-      <a href="#keynote">Keynote</a>
       <a href="#speakers">Call for Speakers</a>
       <a href="#program">Program</a>
       <a href="#organizers">Organizers</a>
@@ -230,6 +242,30 @@
     <li>Explore how <strong>AI-derived results can be translated into scientifically meaningful knowledge</strong>, moving beyond predictive performance towards interpretation, hypothesis generation, validation, and discovery.</li>
     <li>Facilitate <strong>interdisciplinary exchange</strong> between AI researchers and domain scientists.</li>
   </ul>
+</section>
+
+<!-- ================= KEYNOTE ================= -->
+<section id="keynote">
+  <h2>Keynote Speaker</h2>
+  <div class="rule"></div>
+  <div class="keynote-wrap">
+    <div class="person">
+      <img src="photos/Ting_Dang.jpeg" alt="Ting Dang">
+      <div class="name">Dr Ting Dang</div>
+      <div class="affil">Senior Lecturer<br>Computing and Information Systems, University of Melbourne</div>
+      <div class="mail"><a href="https://tingdang90.github.io/" target="_blank" rel="noopener">AIMS Lab</a></div>
+    </div>
+    <div>
+      <div class="talk-label">Keynote talk</div>
+      <h3 class="talk-title">From Human Signals to Scientific Evidence: Human-Centred AI for Human Behavior and Health</h3>
+      <p>Human signals, from speech and sound to physiological measurements and everyday behavior, provide valuable but noisy and incomplete evidence about human states. This talk explores how foundation models can turn these signals into reliable evidence through representation learning, adaptation and agentic reasoning.</p>
+      <p>Dr Dang will first discuss learning generalizable representations from imperfect signals, including pre-training on large-scale, multimodal physiological data from over 50,000 participants to support diverse health inference tasks. She will then examine how AI models can adapt to changing environments and new data distributions. Finally, she will explore how large language models and agentic AI can reason over longitudinal health data, integrating evidence to support proactive monitoring and decision-making.</p>
+      <p>Together, these directions illustrate how AI can move beyond pattern recognition towards reliable scientific evidence about complex, evolving human states, opening new opportunities for scientific discovery and more adaptive, impactful health applications.</p>
+
+      <h4>Bio</h4>
+      <p>Dr Ting Dang is a Senior Lecturer in Computing and Information Systems at the University of Melbourne, where she leads the Human-Centred AI for Multimodal Sensing (AIMS) Lab. Her research focuses on human-centred AI, speech and audio processing, multimodal sensing, adaptive AI, and intelligent voice agents, with applications in healthcare, accessibility, and human–AI interaction. She previously held research positions at Nokia Bell Labs, the University of Cambridge, and UNSW, where she received her PhD. She is an IEEE Senior Member, an elected member of the IEEE Speech and Language Technical Committee, and an Associate Editor for IEEE Transactions on Affective Computing, Computer Speech and Language, and IEEE Pervasive Computing. Her research has received multiple best paper and outstanding paper awards at leading international conferences and attracted media coverage from outlets such as the BBC. She was also a finalist for the Women in Engineering Rising Star Award in 2025 and 2022.</p>
+    </div>
+  </div>
 </section>
 
 <!-- ================= THEMES ================= -->
@@ -326,21 +362,6 @@
   <p>All deadlines are 23:59 Anywhere on Earth (AoE).</p>
 </section>
 
-<!-- ================= KEYNOTE ================= -->
-<section id="keynote">
-  <h2>Keynote Speaker</h2>
-  <div class="rule"></div>
-  <div class="people">
-    <div class="person">
-      <img src="photos/Ting_Dang.jpeg" alt="Ting Dang">
-      <div class="name">Ting Dang</div>
-      <div class="affil">Senior Lecturer<br>School of Computing and Information Systems, University of Melbourne</div>
-      <div class="mail"><a href="https://tingdang90.github.io/" target="_blank" rel="noopener">AIMS Lab</a></div>
-      <div class="bio">Human-centred AI for mobile health — speech and audio processing, wearable sensing, affective computing, and time-series modelling for monitoring mental and respiratory health.</div>
-    </div>
-  </div>
-</section>
-
 <!-- ================= CALL FOR SPEAKERS ================= -->
 <section id="speakers">
   <h2>Call for Speakers</h2>
@@ -377,7 +398,7 @@
     <table>
       <tr><th>Time</th><th>Session</th></tr>
       <tr><td class="time">09:00 – 09:10</td><td>Welcome and workshop introduction</td></tr>
-      <tr><td class="time">09:10 – 09:50</td><td>Keynote: Ting Dang, University of Melbourne (Themes 1–2)</td></tr>
+      <tr><td class="time">09:10 – 09:50</td><td>Keynote: Dr Ting Dang, University of Melbourne — <em>From Human Signals to Scientific Evidence: Human-Centred AI for Human Behavior and Health</em></td></tr>
       <tr><td class="time">09:50 – 10:30</td><td>Contributed session 1: methods for scientific data and modelling</td></tr>
       <tr><td class="time">10:30 – 10:45</td><td>Coffee break</td></tr>
       <tr><td class="time">10:45 – 11:20</td><td>Invited interdisciplinary talk: a domain-science perspective (Theme 3)</td></tr>
